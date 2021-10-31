@@ -1,0 +1,31 @@
+<h1>Bienvenidos a mi primer Angular</h1>
+
+<h1 *ngIf="false">Hola</h1>
+<h1 *ngIf="edad<18">Menor de edad</h1>
+<h1 *ngIf="edad>30">Poblacion de riesgo</h1>
+
+<input type="text" [(ngModel)]="title"/>
+{{title}} 
+
+<input type="edad" [(ngModel)]="edad"/>
+
+<ul *ngIf = "edad >= 18">
+  <li *ngFor = "let estudiante of estudiantes">
+    {{estudiante}}    
+  </li>
+</ul>
+
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>NOMBRE</th>
+    <th>PRECIO</th>
+    <th>DESCRIPCION</th>
+  </thead>
+  <tr *ngFor="let prenda of prendas">
+    <td>{{prenda.id}}</td>
+    <td>{{prenda.title}}</td>
+    <td>{{prenda.price}}</td>
+    <td>{{prenda.description}}</td>
+  </tr>
+</table> 
