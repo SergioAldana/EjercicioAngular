@@ -1,1 +1,22 @@
-<p>main works!</p>
+<div class="card border-primary mb-3">
+    <div class="card-header">Personas</div>
+    <div class="card-body text-primary">
+            <h5 class="card-title">Lista Personas</h5>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>APELLIDO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let persona of personas">
+                        <td>{{persona.id}}</td>
+                        <td>{{persona.nombre}}</td>
+                        <td>{{persona.apellido}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>

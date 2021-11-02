@@ -15,8 +15,7 @@ import { Formulario2Component } from './components/formulario2/formulario2.compo
 const router:Routes = [
   {path: '', component:MainComponent},
   {path: 'logout', component:SalirComponent},
-  {path: 'insertar', component:FormularioComponent},
-  {path: 'insertar2', component:Formulario2Component}
+  {path: 'insertar', component:FormularioComponent}  
 ]
 
 @NgModule({
