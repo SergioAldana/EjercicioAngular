@@ -8,17 +8,22 @@ import { Persona } from '../models/Persona';
   providedIn: 'root'
 })
 export class PersonaService {
-  private urlEndPoint:string = "http://localhost:8080/api/estudiante";
-  private header = new HttpHeaders ({'Content-type':'application/json'});
+  private urlEndPoint: string = "http://localhost:8080/api/estudiante/";
+  private header = new HttpHeaders({ 'Content-type': 'application/json' });
 
-  constructor(private http:HttpClient) { }
-  getPersonas():Observable<Persona[]> {
-    return this.http.get (this.urlEndPoint).pipe(
+  constructor(private http: HttpClient) { }
+
+  getPersonas(): Observable<Persona[]> {
+    return this.http.get(this.urlEndPoint).pipe(
       map((response) => response as Persona[])
     );
   }
-  createPersonas(persona:Persona):Observable<Persona> {
+  createPersonas(persona: Persona): Observable<Persona> {
     return this.http.post<Persona>(this.urlEndPoint,
-      persona,{headers:this.header});
+      persona, { headers: this.header });
+  }
+  deletePersonas(id: number): Observable<Persona> {
+    return this.http.delete<Persona>(this.urlEndPoint + id.toString(),
+      { headers: this.header });
   }
 }
