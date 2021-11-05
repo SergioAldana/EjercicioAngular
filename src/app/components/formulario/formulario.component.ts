@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/Persona';
 import { PersonaService } from 'src/app/services/persona.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,9 +15,17 @@ export class FormularioComponent implements OnInit {
   persona: Persona;
 
   constructor(private personaService: PersonaService,
-    private router: Router) { this.persona = new Persona(0, '', '') }
+    private router: Router, private activate: ActivatedRoute) { this.persona = new Persona(0, '', '') }
 
   ngOnInit(): void {
+  }
+  cargarPersona(): void {
+    this.activate.params.subscribe(params => {
+      let id = params["id"];
+      if (id) {
+        this.personaService.getPersona(id).subscribe(persona => this.persona = persona);
+      }
+    })
   }
   create(): void {
     this.personaService.createPersonas(this.persona).subscribe(
