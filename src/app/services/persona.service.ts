@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Persona } from '../models/Persona';
-import { ClientRequest } from 'http';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +26,10 @@ export class PersonaService {
     return this.http.delete<Persona>(this.urlEndPoint + id.toString(),
       { headers: this.header });
   }
-  getPersona(id:number):Observable<Persona> {
-    return this.http.get<Persona>(
-      this.urlEndPoint+id.toString()
-    );
+  getPersona(id: number): Observable<Persona> {
+    return this.http.get<Persona>(this.urlEndPoint + id.toString());
   }
-  updatePersona(cliente: Persona): Observable<Persona> {
-    return this.http.put<Persona>($(this.urlEndPoint))
+  updatePersona(persona: Persona): Observable<Persona> {
+    return this.http.put<Persona>(`${this.urlEndPoint}${persona.id}`, persona, { headers: this.header })
   }
-
 }

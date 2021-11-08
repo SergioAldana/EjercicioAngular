@@ -18,6 +18,7 @@ export class FormularioComponent implements OnInit {
     private router: Router, private activate: ActivatedRoute) { this.persona = new Persona(0, '', '') }
 
   ngOnInit(): void {
+    this.cargarPersona()
   }
   cargarPersona(): void {
     this.activate.params.subscribe(params => {

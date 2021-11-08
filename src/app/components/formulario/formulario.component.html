@@ -20,8 +20,7 @@
                         <button class="btn btn-primary" role="button" {click}="create()"
                             *ngIf="!persona.id elseblock">Crear</button>
                         <ng-template #elseblock>
-                            <button class="btn btn-primary" role="button" {click}="update()"
-                            >Editar</button>
+                            <button class="btn btn-primary" role="button" {click}="update()">Editar</button>
                         </ng-template>
                     </div>
                 </div>
