@@ -28,6 +28,14 @@ export class FormularioComponent implements OnInit {
       }
     })
   }
+  update(): void {
+    this.personaService.updatePersona(this.persona).subscribe(
+      response => {
+        this.router.navigate(['/']);
+        Swal.fire('Se ha actualizado la persona', '', 'success')
+      }
+    )
+  }
   create(): void {
     this.personaService.createPersonas(this.persona).subscribe(
       response => {

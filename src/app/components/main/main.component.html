@@ -16,10 +16,9 @@
                     <td>{{persona.id}}</td>
                     <td>{{persona.nombre}}</td>
                     <td>{{persona.apellido}}</td>
-                    <td><button name="editar" [routerLink]="['/insertar,persona.id']" 
-                        class="btn btn-primary">Editar</button>
-                        <button name="eliminar" (click)="delete(persona)" 
-                        class="btn btn-danger">Eliminar</button>
+                    <td><button name="editar" [routerLink]="['/insertar',persona.id]"
+                            class="btn btn-primary">Editar</button>
+                        <button name="eliminar" (click)="delete(persona)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
